@@ -5,18 +5,20 @@ public class Main {
     //Main функция
     public static void main(String[] args) {
 	    Scanner InputData = new Scanner(System.in);
-	    String s1 = InputData.nextLine();
-        String s2 = InputData.nextLine();
+	    //String s1 = InputData.nextLine();
+        //String s2 = InputData.nextLine();
 	    //int N = InputData.nextInt();
         //int a = InputData.nextInt();
         //int b = InputData.nextInt();
         //int c = InputData.nextInt();
-        /*int arCounter = InputData.nextInt();
+        int arCounter = InputData.nextInt();
         int arr[] = new int[arCounter];
         for (int i = 0; i<arCounter; i++){
             arr[i] = InputData.nextInt();
-        }*/
-        System.out.println(isStrangePair(s1, s2));
+        }
+        for(int i:cumulativeSum(arr)){
+            System.out.println(i);
+        }
     }
     //1.1
     public static int remainder(int a, int b) {
@@ -105,6 +107,26 @@ public class Main {
         }
         return sum;
     }
+    //2.2
+    public static int differenceMaxMin(int[] arr) {
+        if (arr.length == 0) {
+            return 0;
+        }
+        else {
+            int smallest = arr[0];
+            int biggest = arr[0];
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] > biggest) {
+                    biggest = arr[i];
+                }
+                if (arr[i] < smallest) {
+                    smallest = arr[i];
+                }
+            }
+            int result = biggest - smallest;
+            return result;
+        }
+    }
     //2.3
     public static boolean isAvgWhole(int arr[]){
         int sum = 0;
@@ -119,10 +141,51 @@ public class Main {
         }
 
     }
+    //2.4
+    public static int[] cumulativeSum(int arr[]){
+        int arr1[] = new int[arr.length];
+        arr1[0] = arr[0];
+        int sum = 0;
+        for (int i = 1; i<= arr.length-1;i++){
+            sum+=arr[i-1];
+            arr1[i] = arr[i]+sum;
+        }
+        return arr1;
+
+
+    }
     //2.5
     public static int getDecimalPlaces(String a){
        String b = a.substring(a.indexOf("."), a.length() - 1);
        return b.length();
+    }
+    // 2.6
+    public static int Fibonacci(int first) {
+        int a = 0;
+        int b = 1;
+        int result = 0 ;
+        for (int i = 0; i < first; i++) {
+            result = a + b;
+            a = b;
+            b = result;
+        }
+        return result;
+    }
+    // 2.7
+    public static boolean isValid(String str) {
+        String a = new String(str);
+        if (a.length() == 5) {
+            boolean c = true;
+            for (int i = 0; i < 5; i++) {
+                if (a.charAt(i) < 48 || a.charAt(i) > 57) {
+                    c = false;
+                }
+            }
+            return c;
+        }
+        else {
+            return false;
+        }
     }
     //2.8
     public static boolean isStrangePair(String a, String b){
@@ -130,6 +193,49 @@ public class Main {
             return true;
         else
             return false;
+    }
+    // 2.9
+    public static boolean isPrefix(String first, String second) {
+        second = second.substring(0, second.length()-1);
+        if (first.contains(second)) {
+            if (first.indexOf(second) == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public static boolean isSuffix(String first, String second) {
+        second = second.substring(1, second.length());
+        if (first.contains(second)) {
+            if (first.indexOf(second) == first.length()-second.length()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    // 2.10
+    public static int boxSeq(int first) {
+        int result = 0;
+        for (int i = 0; i < first; i++) {
+            if (i % 2 == 0) {
+                result += 3;
+            }
+            else {
+                result -= 1;
+            }
+        }
+        return result;
     }
     //3.1
     public static int solutions(int a, int b, int c){
@@ -157,23 +263,4 @@ public class Main {
         }
 
     }
-
-    }
-    //2.4
-    public static void cumulativeSum(int arr[]){
-        int arr1[] = new int[arr.length];
-        arr1[0] = arr[0];
-        int sum = 0;
-        for (int i = 1; i<= arr.length-1;i++){
-            sum+=arr[i-1];
-            arr1[i] = arr[i]+sum;
-        }
-        for (int i:arr1){
-            System.out.println(i);
-        }
-
-
-    }
-
-
 }
