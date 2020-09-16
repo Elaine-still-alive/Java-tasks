@@ -2,20 +2,19 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
 	    Scanner InputData = new Scanner(System.in);
-	    String s = InputData.nextLine();
+	    //String s = InputData.nextLine();
 	    //int N = InputData.nextInt();
         //int a = InputData.nextInt();
         //int b = InputData.nextInt();
         //int c = InputData.nextInt();
-        /*int arCounter = InputData.nextInt();
-        int ar[] = new int[arCounter];
+        int arCounter = InputData.nextInt();
+        int arr[] = new int[arCounter];
         for (int i = 0; i<arCounter; i++){
-            ar[i] = InputData.nextInt();
-        }*/
-        flipEndChars(s);
+            arr[i] = InputData.nextInt();
+        }
+        System.out.println(isAvgWhole(arr));
     }
     //1.1
     public static void remainder(int a, int b) {
@@ -117,6 +116,30 @@ public class Main {
             String substr = s.substring(1,(s.length()-1));
             String s1 = s.charAt(s.length()-1)+substr+s.charAt(0);
             System.out.println(s1);
+        }
+
+    }
+    //2.1
+    public static void repeat(String s, int N){
+        String sum = "";
+        for (char l: s.toCharArray()){
+            for (int t = 1; t<=N; t++ ){
+                sum +=l;
+            }
+        }
+        System.out.println(sum);
+    }
+    //2.3
+    public static boolean isAvgWhole(int arr[]){
+        int sum = 0;
+        for (int i: arr){
+            sum+=i;
+        }
+        if (sum%arr.length == 0){
+            return true;
+        }
+        else {
+            return false;
         }
 
     }
