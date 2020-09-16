@@ -15,7 +15,7 @@ public class Main {
         for (int i = 0; i<arCounter; i++){
             arr[i] = InputData.nextInt();
         }
-        System.out.println(isAvgWhole(arr));
+        cumulativeSum(arr);
     }
     //1.1
     public static int remainder(int a, int b) {
@@ -72,7 +72,7 @@ public class Main {
     }
     //1.8
     public static int nextEdge(int a, int b){
-        return a+b-1);
+        return a+b-1;
     }
     //1.9
     public static int sumOfCubes(int ar[]){
@@ -142,6 +142,21 @@ public class Main {
         else {
             return false;
         }
+
+    }
+    //2.4
+    public static void cumulativeSum(int arr[]){
+        int arr1[] = new int[arr.length];
+        arr1[0] = arr[0];
+        int sum = 0;
+        for (int i = 1; i<= arr.length-1;i++){
+            sum+=arr[i-1];
+            arr1[i] = arr[i]+sum;
+        }
+        for (int i:arr1){
+            System.out.println(i);
+        }
+
 
     }
 
