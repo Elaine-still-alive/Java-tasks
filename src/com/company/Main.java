@@ -5,17 +5,18 @@ public class Main {
     //Main функция
     public static void main(String[] args) {
 	    Scanner InputData = new Scanner(System.in);
-	    //String s = InputData.nextLine();
+	    String s1 = InputData.nextLine();
+        String s2 = InputData.nextLine();
 	    //int N = InputData.nextInt();
         //int a = InputData.nextInt();
         //int b = InputData.nextInt();
         //int c = InputData.nextInt();
-        int arCounter = InputData.nextInt();
+        /*int arCounter = InputData.nextInt();
         int arr[] = new int[arCounter];
         for (int i = 0; i<arCounter; i++){
             arr[i] = InputData.nextInt();
-        }
-        System.out.println(isAvgWhole(arr));
+        }*/
+        System.out.println(isStrangePair(s1, s2));
     }
     //1.1
     public static int remainder(int a, int b) {
@@ -72,7 +73,7 @@ public class Main {
     }
     //1.8
     public static int nextEdge(int a, int b){
-        return a+b-1);
+        return a+b-1;
     }
     //1.9
     public static int sumOfCubes(int ar[]){
@@ -93,6 +94,42 @@ public class Main {
         } else {
             return false;
         }
+    }
+    //2.1
+    public static String repeat(String s, int N){
+        String sum = "";
+        for (char l: s.toCharArray()){
+            for (int t = 1; t<=N; t++ ){
+                sum +=l;
+            }
+        }
+        return sum;
+    }
+    //2.3
+    public static boolean isAvgWhole(int arr[]){
+        int sum = 0;
+        for (int i: arr){
+            sum+=i;
+        }
+        if (sum%arr.length == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    //2.5
+    public static int getDecimalPlaces(String a){
+       String b = a.substring(a.indexOf("."), a.length() - 1);
+       return b.length();
+    }
+    //2.8
+    public static boolean isStrangePair(String a, String b){
+        if ((a.charAt(0) == b.charAt(b.length()-1))&&(a.charAt(0) == b.charAt(b.length()-1)))
+            return true;
+        else
+            return false;
     }
     //3.1
     public static int solutions(int a, int b, int c){
@@ -120,30 +157,7 @@ public class Main {
         }
 
     }
-    //2.1
-    public static void repeat(String s, int N){
-        String sum = "";
-        for (char l: s.toCharArray()){
-            for (int t = 1; t<=N; t++ ){
-                sum +=l;
-            }
-        }
-        System.out.println(sum);
-    }
-    //2.3
-    public static boolean isAvgWhole(int arr[]){
-        int sum = 0;
-        for (int i: arr){
-            sum+=i;
-        }
-        if (sum%arr.length == 0){
-            return true;
-        }
-        else {
-            return false;
-        }
 
-    }
 
 
 }
